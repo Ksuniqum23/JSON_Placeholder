@@ -6,6 +6,7 @@ git checkout -b develop
 npm install @reduxjs/toolkit react-redux
 npm install axios
 npm install react-router-dom
+npm install primereact primeicons
 
 
 src/
