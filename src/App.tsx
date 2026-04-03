@@ -1,12 +1,23 @@
 import './App.css'
-import PostsList from "./features/posts/postsList.tsx";
 import HomePage from "./pages/HomePage.tsx";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {PrimeReactProvider} from "primereact/api";
+import Header from "./shared/components/Header.tsx";
+import PostsPage from "./pages/PostsPage.tsx";
 
 function App() {
   return (
     <>
-        <HomePage />
-        <PostsList />
+        <BrowserRouter>
+            <PrimeReactProvider>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/posts" element={<PostsPage />} />
+                </Routes>
+            </PrimeReactProvider>
+
+        </BrowserRouter>
     </>
   )
 }
