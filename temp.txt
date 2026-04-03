@@ -6,3 +6,46 @@ git checkout -b develop
 npm install @reduxjs/toolkit react-redux
 npm install axios
 npm install react-router-dom
+
+
+src/
+│
+├── app/                      # глобальные настройки приложения
+│   ├── store.ts              # конфигурация store
+│   ├── rootReducer.ts        # корневой редюсер (если слайсов много)
+│   └── hooks.ts              # типизированные useDispatch, useSelector
+│
+├── features/                 # ФИЧИ (основная логика по доменам)
+│   ├── posts/                # фича "посты"
+│   │   ├── postsSlice.ts     # редюсер + createAsyncThunk
+│   │   ├── postsAPI.ts       # запросы к API для этой фичи
+│   │   ├── PostsList.tsx     # компонент-список
+│   │   └── PostDetails.tsx   # компонент-деталка
+│   │
+│   └── users/                # фича "пользователи"
+│       ├── usersSlice.ts
+│       ├── usersAPI.ts
+│       └── UsersList.tsx
+│
+├── pages/                    # СТРАНИЦЫ (собирают фичи и роутинг)
+│   ├── HomePage.tsx
+│   ├── PostsPage.tsx
+│   └── PostPage.tsx
+│
+├── shared/                   # ПЕРЕИСПОЛЬЗУЕМЫЙ КОД
+│   ├── api/                  # глобальная настройка axios
+│   │   └── axiosInstance.ts
+│   ├── components/           # UI-кирпичики (Button, Input, Card...)
+│   ├── hooks/                # кастомные хуки (useDebounce, useLocalStorage...)
+│   ├── types/                # глобальные TypeScript-типы
+│   └── utils/                # хелперы (formatDate, validateEmail...)
+│
+├── layouts/                  # ЛЕЙАУТЫ (шаблоны страниц)
+│   ├── MainLayout.tsx        (Header + Outlet)
+│   └── AuthLayout.tsx
+│
+├── routes/                   # настройка роутинга
+│   └── router.tsx
+│
+├── App.tsx
+└── main.tsx

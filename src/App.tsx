@@ -1,9 +1,12 @@
 import './App.css'
+import PostsList from "./features/posts/postsList.tsx";
+import HomePage from "./pages/HomePage.tsx";
 
 function App() {
   return (
     <>
-     <h1>Hello world!</h1>
+        <HomePage />
+        <PostsList />
     </>
   )
 }
