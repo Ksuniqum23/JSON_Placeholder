@@ -9,6 +9,7 @@ export interface PostsState {
     posts: Post[];
     loading: boolean;
     error: string | null;
+    totalCount: number | null;
 }
 
 export type PostsResponse = Post[];
