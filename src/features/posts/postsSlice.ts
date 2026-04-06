@@ -13,7 +13,6 @@ export const fetchPosts = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await getPosts();
-            console.log('response', response);
             return response.data as PostsResponse;
         } catch (error: any) {
             return rejectWithValue(error.message);

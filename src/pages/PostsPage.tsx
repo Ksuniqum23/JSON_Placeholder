@@ -1,4 +1,4 @@
-import PostsList from "../features/posts/postsList.tsx";
+import PostsList from "../features/posts/PostsList.tsx";
 
 const PostsPage = () => {
     return (
