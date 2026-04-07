@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {type Post, type PostsState} from "../../shared/types/postsTypes.ts";
+import type { Post, PostsState } from "../../shared/types/postsTypes.ts";
 import {getLimitPosts} from "./postsAPI.ts";
 
 const initialState: PostsState = {
@@ -8,18 +8,6 @@ const initialState: PostsState = {
     error: null,
     totalCount: null,
 }
-
-// export const fetchPosts = createAsyncThunk(
-//     'posts/fetchPosts',
-//     async (_, { rejectWithValue }) => {
-//         try {
-//             const response = await getPosts();
-//             return response.data as PostsResponse;
-//         } catch (error: any) {
-//             return rejectWithValue(error.message);
-//         }
-//     }
-// )
 
 export const fetchLimitPosts = createAsyncThunk<
     { posts: Post[]; totalCount: number },  // тип возвращаемого значения
@@ -46,18 +34,6 @@ const postsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // .addCase(fetchPosts.pending, (state) => {
-            //     state.loading = true;
-            //     state.error = null;
-            // })
-            // .addCase(fetchPosts.fulfilled, (state, action: PayloadAction<PostsResponse>) => {
-            //     state.loading = false;
-            //     state.posts = action.payload;
-            // })
-            // .addCase(fetchPosts.rejected, (state, action) => {
-            //     state.loading = false;
-            //     state.error = action.payload as string;
-            // })
             .addCase(fetchLimitPosts.pending, (state) => {
                 state.loading = true;
                 state.error = null;

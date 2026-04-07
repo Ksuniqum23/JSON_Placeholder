@@ -1,7 +1,6 @@
-import type { Comment, CommentsResponse, commentState } from "../../shared/types/commentsTypes.ts";
-import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { getComments, getLimitComments } from "./commentsAPI.ts";
-
+import type { Comment, commentState } from "../../shared/types/commentsTypes.ts";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getLimitComments } from "./commentsAPI.ts";
 
 const initialState: commentState = {
     byPostId: {},
@@ -9,20 +8,6 @@ const initialState: commentState = {
     totalCount: {},
     error: {},
 }
-
-export const fetchComments = createAsyncThunk(
-    "comments/fetchComments",
-    async (postId: number, { rejectWithValue }) => {
-        try {
-            console.log('try to get:', postId);
-            const response = await getComments(postId);
-            console.log('getcomments:', response);
-            return response.data as CommentsResponse;
-        } catch (error: any) {
-            return rejectWithValue(error.message);
-        }
-    }
-)
 
 export const fetchLimitComments = createAsyncThunk<
     { comments: Comment[]; totalCount: number },
@@ -49,18 +34,6 @@ const commentsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // .addCase(fetchComments.pending, (state) => {
-            //     state.loading = true;
-            //     state.error = null;
-            // })
-            // .addCase(fetchComments.fulfilled, (state, action: PayloadAction<CommentsResponse>) => {
-            //     state.loading = false;
-            //     state.comments = action.payload;
-            // })
-            // .addCase(fetchComments.rejected, (state, action) => {
-            //     state.loading = false;
-            //     state.error = action.payload as string;
-            // })
             //LIMIT COMMENTS
             .addCase(fetchLimitComments.pending, (state, action) => {
                 const { postId } = action.meta.arg;
