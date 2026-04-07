@@ -50,3 +50,16 @@ src/
 │
 ├── App.tsx
 └── main.tsx
+
+
+# 1. Убедись, что ты на ветке main
+git checkout main
+
+# 2. Обнови main до последней версии (на всякий случай)
+git pull origin main
+
+# 3. Смержить develop в main
+git merge develop
+
+# 4. Запушить изменения в удаленный репозиторий
+git push origin main
