@@ -7,9 +7,10 @@ export interface Comment {
 }
 
 export interface commentState {
-    comments: Comment[];
-    loading: boolean;
-    error: string | null;
+    byPostId: Record<number, Comment[]>;
+    loading: Record<number, boolean>;
+    totalCount: Record<number, number>;
+    error: Record<number, string | null>;
 }
 
 export type CommentsResponse = Comment[];

@@ -1,0 +1,88 @@
+/* LoadMoreButton.css */
+
+/* Кнопка загрузки */
+.load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem auto;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.load-more-btn span {
+    font-size: 1.1rem;
+}
+
+.load-more-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.load-more-btn:active {
+    transform: translateY(0);
+}
+
+/* Альтернативный вариант (заполненный) - если нужен другой стиль */
+.load-more-btn-filled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem auto;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-600) 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.load-more-btn-filled span {
+    font-size: 1.1rem;
+}
+
+.load-more-btn-filled:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.05);
+}
+
+.load-more-btn-filled:active {
+    transform: translateY(0);
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .load-more-btn,
+    .load-more-btn-filled {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        margin: 1rem 0;
+    }
+}
+
+/*!* Если нужно разместить кнопку по центру родителя *!*/
+/*.load-more-wrapper {*/
+/*    display: flex;*/
+/*    justify-content: right;*/
+/*    align-items: right;*/
+/*    padding: 1rem 0;*/
+/*}*/

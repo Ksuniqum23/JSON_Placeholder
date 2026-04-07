@@ -96,4 +96,5 @@
 /* Прижимаем контейнер легенды к левому краю */
 .p-fieldset-legend {
     text-align: right;
+    font-size: 0.95rem;
 }

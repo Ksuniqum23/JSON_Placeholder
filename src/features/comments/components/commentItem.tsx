@@ -29,14 +29,14 @@ const CommentItem = ({ comment }: { comment: Comment}) => {
                         <span className="comment-id">#{comment.id}</span>
                     </div>
                     <p className="comment-body">{comment.body}</p>
-                    <div className="comment-footer">
-                        <button className="comment-reply-btn">
-                            <span>💬</span> Ответить
-                        </button>
-                        <button className="comment-like-btn">
-                            <span>❤️</span> Нравится
-                        </button>
-                    </div>
+                    {/*<div className="comment-footer">*/}
+                    {/*    <button className="comment-reply-btn">*/}
+                    {/*        <span>💬</span> Ответить*/}
+                    {/*    </button>*/}
+                    {/*    <button className="comment-like-btn">*/}
+                    {/*        <span>❤️</span> Нравится*/}
+                    {/*    </button>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>
