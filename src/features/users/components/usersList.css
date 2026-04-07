@@ -1,0 +1,38 @@
+/* UsersList.css */
+
+.users-grid-container {
+    width: 100%;
+    padding: 1rem;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Адаптив для разных размеров экрана */
+@media (max-width: 768px) {
+    .users-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .users-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.users-loading,
+.users-error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-color-secondary);
+}
+
+.users-error {
+    color: var(--red-500);
+}
