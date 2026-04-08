@@ -1,6 +1,8 @@
+import "reflect-metadata";
 import express from 'express';
 import cors from 'cors';
-import postRoutes from '../backend/src/routes/postRoutes';
+import { AppDataSource } from "./src/data-source";
+import postRoutes from './src/routes/postRoutes';
 
 const app = express();
 const PORT = 5000;
@@ -8,7 +10,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// ПОДКЛЮЧАЕМ МАРШРУТЫ
+// Маршруты
 app.use('/posts', postRoutes);
 
 app.get('/ping', (req, res) => {
@@ -22,7 +24,14 @@ app.get('/', (req, res) => {
     });
 });
 
-// ЗАПУСК
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// Подключение к БД и запуск сервера
+AppDataSource.initialize()
+    .then(() => {
+        console.log('✅ Database connected');
+        app.listen(PORT, () => {
+            console.log(`🚀 Server running on http://localhost:${PORT}`);
+        });
+    })
+    .catch((error) => {
+        console.error('❌ Database connection error:', error);
+    });
