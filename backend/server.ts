@@ -2,7 +2,7 @@ import "reflect-metadata";
 import express from 'express';
 import cors from 'cors';
 import { AppDataSource } from "./src/data-source";
-import postRoutes from './src/routes/postRoutes';
+
 
 const app = express();
 const PORT = 5000;
@@ -11,8 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 // Маршруты
-app.use('/posts', postRoutes);
-
 app.get('/ping', (req, res) => {
     res.json({ status: 'ok', message: 'Server is running' });
 });
@@ -20,7 +18,6 @@ app.get('/ping', (req, res) => {
 app.get('/', (req, res) => {
     res.json({
         message: 'JSON Placeholder API is running',
-        endpoints: ['/posts', '/users', '/comments', '/ping']
     });
 });
 

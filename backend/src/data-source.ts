@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { Post } from "./entities/Post";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +10,7 @@ export const AppDataSource = new DataSource({
     database: "json_placeholder",
     synchronize: true, // автоматически создаёт таблицы (для разработки)
     logging: true,
-    entities: [Post],
+    entities: [],
     migrations: [],
     subscribers: [],
 });
