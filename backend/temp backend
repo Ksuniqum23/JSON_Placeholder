@@ -13,3 +13,14 @@ npm install --save-dev @types/node
         pg — драйвер для PostgreSQL
         reflect-metadata — нужен для работы декораторов
         @types/node — типы Node.js для TypeScript
+
+
+npm install dotenv
+    для работы с .env
+
+npx ts-node src/index.ts
+    Что происходит внутри:
+        ts-node читает src/index.ts
+        Компилирует его в JavaScript (в памяти)
+        Выполняет код
+        В вашем случае — подключается к PostgreSQL и создает таблицы
